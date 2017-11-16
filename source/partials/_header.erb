@@ -1,0 +1,25 @@
+<header>
+    <div class="logo">
+       <a href="/"><img alt="main logo" src="/images/newlogo.svg"/></a>
+    </div>
+
+    <input type="checkbox" id="navcheck" role="button" title="menu">
+    <label for="navcheck" aria-hidden="true" title="menu">
+        <span class="burger">
+            <span class="bar">
+                <span class="visuallyhidden">Menu</span>
+            </span>
+        </span>
+    </label>
+    <nav id="menu">
+        <%= link_to 'Home', '/' %>
+        <a href="#">Work</a>
+            <ul>
+                <li><%= link_to 'GreenRope', '/greenrope.html' %></li>
+                <li><%= link_to 'Ziprent', '/ziprent.html' %></li>
+                <li><%= link_to 'Sailors Grave', '/sailorsgrave.html' %></li>
+            </ul>
+        <%= link_to 'Resume', '/about.html' %>
+        <%= link_to 'About', '/about.html' %>
+    </nav>
+</header>

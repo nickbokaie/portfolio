@@ -1,0 +1,428 @@
+@import url(https://fonts.googleapis.com/css?family=Catamaran:600|Merriweather+Sans:300,700);
+
+html {
+  font-size: 16px;
+  line-height: 1.5rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Catamaran', sans-serif;
+}
+
+$large-header: 3rem;
+$medium-header: 1.7rem;
+$small-header: 1.3rem;
+
+h1 {font-size: $large-header;}
+h2 {font-size: $medium-header;}
+h3 {font-size: $small-header;}
+
+
+body {
+  background-color: white;
+  color: #333;
+  font-family: 'Merriweather Sans', Sans-Serif;
+  margin: 0;
+  padding: 0;
+}
+
+//Breakpoint mixins
+@mixin for-size($size) {
+  @if $size == phone-only {
+    @media (max-width: 599px) { @content; }
+  } @else if $size == tablet-portrait-up {
+    @media (min-width: 600px) { @content; }
+  } @else if $size == tablet-landscape-up {
+    @media (min-width: 900px) { @content; }
+  } @else if $size == desktop-up {
+    @media (min-width: 1200px) { @content; }
+  } @else if $size == big-desktop-up {
+    @media (min-width: 1800px) { @content; }
+  }
+}
+
+
+// Header Styles
+
+header {
+	padding-bottom: 1%;
+}
+
+.logo {
+  text-align: center;
+  padding-top: 35px;
+}
+
+//Navigation CSS
+
+$timing-function   : cubic-bezier(0.190, 1.000, 0.220, 1.000);
+$nav-width-desktop : 25em;
+$nav-width-mobile  : 25em;
+$nav-item-nb       : 6;
+
+input {
+	position: fixed;
+	opacity: 0;
+}
+label {
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	border: none;
+	outline: none;
+	background: none;
+	cursor: pointer;
+	&::before {
+		position: fixed;
+		z-index: 1;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: rgba(darken(#7c7c7c,30%),.6);
+		content: '';
+		opacity: 0;
+		pointer-events: none;
+		transition: opacity .5s $timing-function;
+	}
+	.burger {
+		position: fixed;
+		top: 2em;
+		left: 2em;
+		z-index: 3;
+		width: 2em;
+		height: 2em;
+		margin: 0;
+		padding: 0;
+		transition: opacity .5s $timing-function;
+		&::before,
+		.bar,
+		&::after {
+			position: absolute;
+			left: 0;
+			display: block;
+			width: 100%;
+			height: 12%;
+			background: black;
+			content: '';
+			transition: all .5s $timing-function;
+		}
+		.bar {
+			top: 44%;
+		}
+		&::before {
+			top: 0;
+			transform-origin: top left;
+		}
+		&::after {
+			bottom: 0;
+			transform-origin: bottom left;
+		}
+	}
+}
+
+input:focus + label,
+label:hover {
+	.burger {
+		opacity: .75;
+	}
+}
+
+nav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	z-index: 2;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: flex-start;
+	transform: translate3d(0,0,0); /* material acceleration */
+	transform: translateX(-100%);
+	will-change: transform;
+	transition: transform .5s $timing-function;
+	&::before {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0; 
+		z-index: -1;
+		width: $nav-width-mobile;
+		background: #73937E ;
+		content: '';
+		transform: skewX(15deg) translateX(-100%);
+		transform-origin: bottom left;
+		will-change: transform;
+		transition: transform .5s $timing-function;
+		@media(min-width: 40em) {
+			width: $nav-width-desktop;
+		}
+	}
+	a {
+		margin: .5em 0;
+		padding: .1em 2em;
+		font-size: 1.5em;
+		color: white;
+		text-decoration: none;
+		font-weight: 500;
+		transform: translateX(-100%);
+		transition: color .15s, transform .5s;
+		transition-timing-function: $timing-function;
+		@for $i from 1 through $nav-item-nb {
+			&:nth-child(#{$i}) { transition-delay: 0s, #{50 + (50 * $i)}ms; }	
+		}
+		&:hover, &:focus {
+			color: black;
+    }
+    
+    &:nth-child(2):after {
+      content: "\25bc";
+      font-size: .5em;
+      padding-left: 5px;
+    }
+  }
+  
+  ul {
+    list-style: none;
+    margin: 0;
+  }
+
+  ul li {
+    line-height: 2.5em;
+  }
+}
+
+main {
+	overflow: hidden;
+	.content {
+		transform: translate3d(0,0,0); /* material acceleration */
+		will-change: transform, filter;
+		transition: all .5s $timing-function;
+	}
+}
+
+[id="navcheck"]:checked {
+	& + label {
+		&::before {
+			opacity: 1;
+			pointer-events: auto;
+		}
+		.burger {
+			&::before,
+			&::after {
+				width: 141.42%; // Pythagore!
+			}
+			&::before {
+				transform: rotate(45deg) translateY(-50%);
+			}
+			&::after {
+				transform: rotate(-45deg) translateY(50%);
+			}
+			.bar {
+				transform: scale(0.1);
+			}
+		}
+	}
+	& ~ nav {
+		transform: translateX(0);
+		&::before {
+			transform: skewX(15deg) translateX(0);
+		}
+		a {
+			transform: translateX(0);
+		}
+	}
+}
+
+/* helper */
+.visuallyhidden { 
+  border:0; 
+  clip:rect(0 0 0 0);	
+  height:1px; 
+  margin:-1px; 
+  overflow:hidden; 
+  padding:0; 
+  position:absolute; 
+  width:1px; 
+}
+// End Navigation
+
+// Hero Section: Homepage
+.hero {
+  text-align: center;
+  margin-top: 4%;
+
+  img {
+    border-radius: 50%;
+    max-width: 12rem;
+    padding: 1rem 0;
+	}
+	
+	p {
+		font-size: 1.5em;
+		color: #4c4c4c;
+	}
+
+	h1 {
+		font-size: 2.5rem;
+		color: #4c4c4c;
+	}
+} 
+
+// Primary Button Style
+.primary-btn {
+  padding: 12px 10px;
+  width: 150px;
+  background: #ddd;
+  color: #585858;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  opacity: 1;
+  text-decoration: none;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.75;
+    -webkit-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+  }
+}
+
+// Inner Page Padding
+.section-padding {
+	padding: 4em 5rem 1rem 5rem;
+}
+
+// Greenrope Homepage Styles
+.gr-dash-item {
+  background: #f7a3a3;
+  text-align: center;
+  padding: 10em 5em 0 5em;
+  margin-bottom: 2%;
+
+  img {
+    width: 70%;
+    object-fit: contain;
+  }
+}
+
+// Ziprent Homepage Styles
+.ziprent-dash-item {
+  background: #9bf1bc;
+  text-align: center;
+  padding: 10em 5em 0 5em;
+  margin-bottom: 2%;
+
+  img {
+    width: 70%;
+    object-fit: contain;
+  }
+}
+
+// SGTG Homepage Styles
+.sgtg-dash-item {
+	background-image: url('/images/sgtg/tattoobg.png');
+	background-size: contain;
+  text-align: center;
+  padding: 10em 5em 0 5em;
+  margin-bottom: 2%;
+
+  img {
+    width: 70%;
+    object-fit: contain;
+  }
+}
+
+// Main body content
+.project-content {
+
+	.text-content {
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0 auto;
+		padding: 2% 0%;
+		max-width: 650px;
+	
+		@include for-size(phone-only) {
+			padding: 5% 5%;
+		}
+
+		li {
+			padding: 1% 0;
+		}
+	}
+
+	div {
+		margin: 0 auto;
+		padding: 0 3%;
+		max-width: 1200px;
+		overflow: hidden;
+		img {
+			width: 100%;
+			object-fit: contain;
+		}
+	}
+}
+
+//Lightbox test css
+
+// Background Image Variables
+$gr-bg: url('/images/greenrope/gr-header.jpg');
+$ziprent-bg: url('/images/ziprent/ziprent-cover.jpg');
+$sgtg-bg: url('/images/sgtg/sgtg-cover2.jpg');
+
+
+
+// Greenrope Content Styles
+.img-container {
+	width: 100%;
+	height: 45vh;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	display: flex;
+  justify-content: center;
+  align-items: center;
+
+	div {
+		background: rgba($color: #000000, $alpha: .75);
+		padding: 20px;
+	}
+
+	h1 {
+		color: white;
+		line-height: 1.4em;
+	}
+}
+
+.gr-content-img {background-image: $gr-bg;}
+.ziprent-content-img {background-image: $ziprent-bg;}
+.sgtg-content-img {background-image: $sgtg-bg;}
+
+
+// Footer Styles
+footer {
+  text-align: center;
+  padding: 3% 0%;
+}
+
+.icons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 auto;
+  width: 145px; 
+  
+  img {
+    width: 32px;
+    height: 32px;
+    padding-left: 10px;
+    &:nth-child(3) {
+      padding-left: none;
+    }
+  }
+}
+
+
