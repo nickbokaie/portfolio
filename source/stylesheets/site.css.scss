@@ -149,7 +149,7 @@ nav {
 		left: 0; 
 		z-index: -1;
 		width: $nav-width-mobile;
-		background: #73937E ;
+		background: #73937E;
 		content: '';
 		transform: skewX(15deg) translateX(-100%);
 		transform-origin: bottom left;
@@ -273,7 +273,6 @@ main {
 // Primary Button Style
 .primary-btn {
   padding: 12px 10px;
-  width: 150px;
   background: #ddd;
   color: #585858;
   font-size: 16px;
@@ -297,7 +296,8 @@ main {
 
 // Greenrope Homepage Styles
 .gr-dash-item {
-  background: #f7a3a3;
+  background-image: url('/images/greenrope/gr-city.jpg');
+	background-size: contain;
   text-align: center;
   padding: 10em 5em 0 5em;
   margin-bottom: 2%;
@@ -310,7 +310,8 @@ main {
 
 // Ziprent Homepage Styles
 .ziprent-dash-item {
-  background: #9bf1bc;
+	background-image: url('/images/greenrope/paintedladies.jpg');
+	background-size: cover;
   text-align: center;
   padding: 10em 5em 0 5em;
   margin-bottom: 2%;
@@ -357,12 +358,17 @@ main {
 	div {
 		margin: 0 auto;
 		padding: 0 3%;
-		max-width: 1200px;
+		max-width: 1000px;
 		overflow: hidden;
 		img {
 			width: 100%;
 			object-fit: contain;
 		}
+	}
+	figcaption {
+		text-align: center;
+		font-size: .75em;
+		padding-bottom: 25px;
 	}
 }
 
@@ -406,6 +412,14 @@ $sgtg-bg: url('/images/sgtg/sgtg-cover2.jpg');
 footer {
   text-align: center;
   padding: 3% 0%;
+	p {
+		font-size: .75em;
+	}
+
+	a {
+		text-decoration: none;
+		color: inherit;
+	}
 }
 
 .icons {
