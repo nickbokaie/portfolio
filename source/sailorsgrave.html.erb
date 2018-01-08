@@ -8,12 +8,14 @@ title: Sailors Grave Project
 </div>
 <div class="project-content">
     <!-- Text Block -->
-    <div class="text-content">
+    <div class="text-block">
         <p><span style="font-weight: 700;">Position:</span> Product Designer | <span style="font-weight: 700;">Team:</span> Shop Owner, Product Designer</p>
         <h3>Project Overview</h3>
-        <p><%= lorem.sentences 5 %></p>
+        <p>TThis project was my final assignment at UCSD within the HCI (Human Computer Interaction) department. The goal of the project was to reach out to a local business and offer to completely redesign their existing website. The scope of the project was only to focus on the redesign, not actually building the site for them. We could offer that, but only once the project was finished.</p>
+        <p>I chose to reach out to Sailors Grave Tattoo Gallery since I had just gotten a tattoo from them. Seeing as tattooing is inherently design centric, I figured it would be a unique project to combine tattooing and web design. They were enthusiastically receptive and were a fantastic business to work with.
+        </p>
         <h3>UX Process</h3>
-        <p>Before beginning our design we wanted to first interview the shop owner to set a foundation for his expectation of the site redesign. We categorized the survey into several sections:
+        <p>Before beginning my design I wanted to first interview the shop owner to set a foundation for his expectation of the site redesign. I categorized the interview into several sections:
             <ul>
                 <li>Analysis of current site</li>
                 <li>Desires for future site</li>
@@ -21,21 +23,104 @@ title: Sailors Grave Project
             </ul>
         </p>
         
-        <blockquote>
-            "The target audience I am trying to reach out too is people without tattoos. When I see two people, one with a sleeve of tattoos and one without, I will always go talk to the without."
-        </blockquote>
-        
-        <p>Having established the  expectations of the shop owner,  we then set out to understand the various types of customers. We conducted surveys at the tattoo shop over the course of several weekends and were able to categorize three types of user personas:</p>
+        <p>Having established the  expectations of the shop owner,  I then set out to understand the various types of customers. I conducted surveys at the tattoo shop over the course of several weekends and was able to categorize the majority of interviewees into three types of user personas:
+            <ul>
+                <li>Customers with tattoos</li>
+                <li>Customers without tattoos</li>
+                <li>Customers looking to cover-up an existing tattoo</li>
+            </ul>
+        </p>
     </div>
     <!-- Image Block -->
     <div>
-        <img alt="User Persona Overview" src="/images/sgtg/complete-persona.png">
+        <img alt="User Persona Overview" src="/images/sgtg/personna-1.png">
+        <figcaption>Left: Customer with existing tattoos | Right: Cover-up customer</figcaption>
+        <img alt="User Personna Overview 2" src="/images/sgtg/personna-2.png">
+        <figcaption>Customer with no tattoos</figcaption>
+    </div>
+
+    <div class="text-block">
+        <p>From there I then began our initial designs of site, making sure to focus to highlighting each artist's work. I first wanted to sketch out a few ideas I had to give me a baseline to work with for future low and high fidelity wireframes.
+        </p>
+        <h3>Sketches</h3>
+        <p>I first started with the homepage. I set out to see how I could incorporate the latest tattoos and reviews. Seeing as the bulk of the tattoo community uses Instagram for immediate display of their latest work, I thought it would be wise to highlight that feature on the homepage. It would provide a real time update without the owner having to constantly update the site with new work.</p>
+    </div>
+
+    <div>
+        <img alt="SGTG Homepage Sketches" src="/images/sgtg/home-sketches.png">
+    </div>
+
+    <div class="text-block">
+        <p>I then moved on to the artist page. I felt it was important to convey who the artist is and what style they focus in. Is it american traditional? Japanese? Portraits?</p>
+        <p>As a potential customer I want to find an artist who can best execute on the idea I have. This page can assist in narrowing down the field.</p>
+    </div>
+
+    <div>
+        <img alt="Artist Page Sketches" src="/images/sgtg/artist-sketches.png">
+    </div>
+
+    <div class="text-block">
+        <p>For the individual artist portfolio page, I wanted to find a layout which best suited the artwork. Ultimately that is going to be the deciding factor for a potential customer. They are going to want to see high quality and a wide range of tattoos created by the artist. </p>
+    </div>
+
+    <div>
+        <img alt="Profile Page Sketches" src="/images/sgtg/profile-sketches.png">
     </div>
 
     <!-- Text Block -->
-    <div class="text-content">
-        <h3>Prioritization</h3>
-        <p><%= lorem.sentences 5 %></p>
+    <div class="text-block">
+        <h3>Low Fidelity Wireframes</h3>
+        <p>With the sketches completed, I then moved on to translating them into low fidelity versions on Sketch. This allowed me to get a better idea of the spacing within common browser dimensions. It also enabled me to quickly mockup potential layouts and have a good idea if they were worth spending the time to translate them into high fidelity versions.</p>
+    </div>
+
+    <div>
+        <img alt="First batch of low fidelity wireframes" src="/images/sgtg/low-fidelity-2.png">
+        <figcaption>Homepage Ideas</figcaption>
+        <img alt="Second batch of low fidelity wireframes" src="/images/sgtg/low-fidelity-3.png">
+        <figcaption>Artist overview page along with the artist profile page.</figcaption>
+        <img alt="Third batch of low fidelity wireframes" src="/images/sgtg/low-fidelity-5.png">
+        <figcaption>FAQ and Aftercare pages</figcaption>
+    </div>
+
+
+    <div class="text-block">
+        <h3>High Fidelity Wireframes</h3>
+        <p>Moving on to creating high fidelity wireframes for the site, I first wanted to establish a few stylistic elements such as a color palette and font combinations to use. </p>
+        <p>For the color palette, the shop owner had given me a paint sample of the new color he was planning to paint the shop with. With that color bring the primary color, I was then able to choose several accent colors to compliment it. I wanted to keep the palette relatively light and neutral. So many tattoo shop websites have dark color palettes which I find uninviting. I figured by utilizing lighter and neutral colors, it would give the impression of being a more welcoming and inviting space.</p>
+        <p>For the font combination, I wanted a bold but not too aggressive main heading. I felt Oswald Medium best fit that constraint and Oswald Light provided a less aggressive subheading. As for the body, Open Sans complimented Oswald well. It provided a neutral, yet familiar style making it legible and easy to read.</p>
+        <img alt="Style Guide for SGTG" src="/images/sgtg/style.png">
+        <p>With the the style guide established, I was able to focus on setting the the appropriate layouts for the various pages, paying close attention to the artist profile page. I wanted to utilize a fair amount of padding and white space to help highlight the artists and their artwork. </p>
+    </div>
+
+    <div>
+        <img alt="First high fidelity wireframe" src="/images/sgtg/hi-fi-1.png">
+        <figcaption>Home Page | Artist Overview Page | Artist Profile Page</figcaption>
+    </div>
+
+    <div class="text-block">
+        <p>I did allow for some redundancy when it came to highlighting the artists themselves. I would rather allow the a potential customer to immediately click on an artist to see their profile rather than having go Artists>Name of Artist> Artist Profile. It also is easier if the customer is viewing the site on mobile.</p>
+    </div>
+
+    <div>
+        <img alt="Second high fidelity wireframe" src="/images/sgtg/hi-fi-2.png">
+        <figcaption>Alternative Artist Profile Page | Lightbox Example</figcaption>
+    </div>
+
+    <div class="text-block">
+        <blockquote>
+            "When I see two people, one with a sleeve of tattoos and one without, I will always go talk to the one without[...]I want to be that tattoo artist that can make a person without tattoos feel comfortable getting something by me." - Gary Koblis, Shop Owner
+        </blockquote>
+    </div>
+
+    <div>
+        <img alt="Third high fidelity wireframe" src="/images/sgtg/hi-fi-3.png">
+        <figcaption>Contact page | FAQ | Aftercare</figcaption>
+    </div>
+
+    <div class="text-block">
+        <h3>Project Reflection</h3>
+        <p>Looking back, I would have liked to develop the site myself but given the time constraints of the class and project I was ok giving the finished designs over to the shop owner and letting him use them however he saw fit.</p>
+        <p>However, being my first design project, this was a tremendous learning experience. It gave me valuable insight into the immense work you have to put in to great a website. Everything from conducting user surveys and creating user personas to selecting font combinations allowed me see how all of those factors play a vital role in the ultimate design of not only a website but a product. </p>
     </div>
 
 </div>

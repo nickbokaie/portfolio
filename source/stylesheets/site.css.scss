@@ -5,6 +5,21 @@ html {
   line-height: 1.5rem;
 }
 
+//Breakpoint mixins
+@mixin for-size($size) {
+  @if $size == phone-only {
+    @media (max-width: 599px) { @content; }
+  } @else if $size == tablet-portrait-up {
+    @media (min-width: 600px) { @content; }
+  } @else if $size == tablet-landscape-up {
+    @media (min-width: 900px) { @content; }
+  } @else if $size == desktop-up {
+    @media (min-width: 1200px) { @content; }
+  } @else if $size == big-desktop-up {
+    @media (min-width: 1800px) { @content; }
+  }
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Catamaran', sans-serif;
 }
@@ -24,21 +39,6 @@ body {
   font-family: 'Merriweather Sans', Sans-Serif;
   margin: 0;
   padding: 0;
-}
-
-//Breakpoint mixins
-@mixin for-size($size) {
-  @if $size == phone-only {
-    @media (max-width: 599px) { @content; }
-  } @else if $size == tablet-portrait-up {
-    @media (min-width: 600px) { @content; }
-  } @else if $size == tablet-landscape-up {
-    @media (min-width: 900px) { @content; }
-  } @else if $size == desktop-up {
-    @media (min-width: 1200px) { @content; }
-  } @else if $size == big-desktop-up {
-    @media (min-width: 1800px) { @content; }
-  }
 }
 
 
@@ -267,6 +267,10 @@ main {
 	h1 {
 		font-size: 2.5rem;
 		color: #4c4c4c;
+		@include for-size(phone-only) {
+			font-size: 2rem;
+			line-height: 2rem;
+		}
 	}
 } 
 
@@ -286,12 +290,20 @@ main {
     opacity: 0.75;
     -webkit-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;
-  }
+	}
+	
+	a {
+		color: inherit;
+		text-decoration: none;
+	}
 }
 
 // Inner Page Padding
 .section-padding {
 	padding: 4em 5rem 1rem 5rem;
+	@include for-size(phone-only) {
+		padding: 1rem;
+	}
 }
 
 // Greenrope Homepage Styles
@@ -303,21 +315,27 @@ main {
   margin-bottom: 2%;
 
   img {
-    width: 70%;
+    width: 60%;
     object-fit: contain;
   }
 }
 
+.dash-item {
+	margin-bottom: 2%;
+	img {
+		width: 100%;
+	}
+}
 // Ziprent Homepage Styles
 .ziprent-dash-item {
-	background-image: url('/images/greenrope/paintedladies.jpg');
+	/*background-image: url('/images/ziprent/ziprent-main.png');*/
 	background-size: cover;
   text-align: center;
   padding: 10em 5em 0 5em;
   margin-bottom: 2%;
 
   img {
-    width: 70%;
+    width: 60%;
     object-fit: contain;
   }
 }
@@ -331,7 +349,7 @@ main {
   margin-bottom: 2%;
 
   img {
-    width: 70%;
+    width: 60%;
     object-fit: contain;
   }
 }
@@ -339,7 +357,7 @@ main {
 // Main body content
 .project-content {
 
-	.text-content {
+	.text-block {
 		display: flex;
 		flex-wrap: wrap;
 		margin: 0 auto;
@@ -370,14 +388,17 @@ main {
 		font-size: .75em;
 		padding-bottom: 25px;
 	}
-}
 
-//Lightbox test css
+	.codepen-examples {
+		display: inline-block;
+	}
+}
 
 // Background Image Variables
 $gr-bg: url('/images/greenrope/gr-header.jpg');
 $ziprent-bg: url('/images/ziprent/ziprent-cover.jpg');
 $sgtg-bg: url('/images/sgtg/sgtg-cover2.jpg');
+$about-bg: url('/images/penelope-about.jpg');
 
 
 
@@ -406,6 +427,11 @@ $sgtg-bg: url('/images/sgtg/sgtg-cover2.jpg');
 .gr-content-img {background-image: $gr-bg;}
 .ziprent-content-img {background-image: $ziprent-bg;}
 .sgtg-content-img {background-image: $sgtg-bg;}
+.about-content-img{
+		background-image: $about-bg;
+		background-position-x: 50%;
+    background-position-y: 75%;
+}
 
 
 // Footer Styles
