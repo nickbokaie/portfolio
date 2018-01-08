@@ -8,6 +8,12 @@ end
 # Livereload
 activate :livereload
 
+# Pretty URLs
+activate :directory_indexes
+
+# Minify HTML
+activate :minify_html
+
 # Layouts
 # https://middlemanapp.com/basics/layouts/
 
