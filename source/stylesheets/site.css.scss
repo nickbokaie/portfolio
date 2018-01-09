@@ -50,7 +50,11 @@ header {
 
 .logo {
   text-align: center;
-  padding-top: 35px;
+	padding-top: 25px;
+	
+	img {
+		max-width: 225px;
+	}
 }
 
 //Navigation CSS
