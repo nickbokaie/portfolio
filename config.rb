@@ -14,6 +14,9 @@ activate :directory_indexes
 # Minify HTML
 activate :minify_html
 
+#Image optimizer
+activate :imageoptim
+
 # Layouts
 # https://middlemanapp.com/basics/layouts/
 
