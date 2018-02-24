@@ -10,6 +10,7 @@ activate :livereload
 
 # Pretty URLs
 activate :directory_indexes
+set :trailing_slash, false
 
 # Minify HTML
 activate :minify_html

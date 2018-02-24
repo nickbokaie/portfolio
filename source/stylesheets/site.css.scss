@@ -63,6 +63,7 @@ $timing-function   : cubic-bezier(0.190, 1.000, 0.220, 1.000);
 $nav-width-desktop : 25em;
 $nav-width-mobile  : 25em;
 $nav-item-nb       : 6;
+$nav-background-green: #73937E;
 
 input {
 	position: fixed;
@@ -153,7 +154,7 @@ nav {
 		left: 0; 
 		z-index: -1;
 		width: $nav-width-mobile;
-		background: #73937E;
+		background-image: linear-gradient(to top, #a3bded 0%, #6991c7 100%);
 		content: '';
 		transform: skewX(15deg) translateX(-100%);
 		transform-origin: bottom left;
@@ -255,7 +256,7 @@ main {
 // Hero Section: Homepage
 .hero {
   text-align: center;
-  margin-top: 4%;
+  margin-top: 2%;
 
   img {
     border-radius: 50%;
@@ -270,7 +271,7 @@ main {
 
 	h1 {
 		font-size: 2.5rem;
-		color: #4c4c4c;
+		color: black;
 		@include for-size(phone-only) {
 			font-size: 2rem;
 			line-height: 2rem;
@@ -304,10 +305,7 @@ main {
 
 // Inner Page Padding
 .section-padding {
-	padding: 4em 5rem 1rem 5rem;
-	@include for-size(phone-only) {
-		padding: 1rem;
-	}
+	padding: 2% 6% 0;
 }
 
 // Greenrope Homepage Styles
@@ -330,16 +328,19 @@ main {
 		width: 100%;
 	}
 }
-// Ziprent Homepage Styles
+
+
+// Ziprent Homepage Styles: TEST
 .ziprent-dash-item {
-	/*background-image: url('/images/ziprent/ziprent-main.png');*/
+	background-image: url('/images/ziprent/ziprent-main-test.png');
 	background-size: cover;
-  text-align: center;
+	text-align: left;
+	height: 100%;
   padding: 10em 5em 0 5em;
   margin-bottom: 2%;
 
   img {
-    width: 60%;
+    width: 100%;
     object-fit: contain;
   }
 }
@@ -468,5 +469,4 @@ footer {
     }
   }
 }
-
 
