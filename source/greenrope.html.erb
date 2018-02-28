@@ -122,7 +122,14 @@ title: GreenRope Project
 
     <div class="text-block">
         <h2>Deep Dive: Mobile App</h2>
-        <p>While the desktop client was receiving a global style update, we found this a good opportunity to revamp our mobile application. Seeing as the mobile had not received any major styling update since its creation several years ago, we found this an appropriate time to create some consistency between the mobile and desktop experiences.</p>
+        <p>While the desktop client was receiving a global style update, we found this a good opportunity to revamp our mobile application. Seeing as the mobile had not received any major styling update since its creation several years ago, we found this an appropriate time to create some consistency between the mobile and desktop experiences. Our goals for the update included:
+            <ul>
+                <li>Identify most common mobile app use cases and create the associated user stories</li>
+                <li>Simplify and/or remove unnecessary functions that do not pertain to the above use cases / user stories
+                </li>
+                <li>Update with a fresh and modern design</li>
+            </ul>
+        </p>
         <h3>Prioritization</h3>
         <p>While the mobile experience was limited in terms of functionality compared to the desktop experience, we decided based on the limited development time to focus on the design first before addressing bigger functionality requests.</p>
         <p>I first began by giving our app icon a refresh. The original app icon was outdated and referenced a design that was no longer used on the web application. I felt our “GreenRope” logo was too long to use within an app icon, and the we didn’t need to include “CRM” as well. Users who will use the app know it is a CRM, they don’t need the reminder every time they look at the logo. From there I used our current color palette and came up with the two options below. We ended up going with the white background option as it stood out more when placed around other app icons.</p>
@@ -154,19 +161,41 @@ title: GreenRope Project
 
     <div class="text-block">
         <h3>New UI</h3>
-        <p>In addition to updating the overall design of the app, I wanted to make sure the user knew where they were at all times. I used a combination of hierarchical and flat type navigation to give the user a straightforward and simple approach to moving throughout the app. For example, within the contact record use case below, the user is able to navigate to a specific contact hierarchically. Once they are within that particular contact record, the user is then directed to use the flat sub navigation to interact with the various categories. I found this approach to be the most effective when having to deal with the amount of data we display at any given point in the app.</p>
+        <p>In addition to updating the overall design of the app, I wanted to make sure the navigation architecture was up to date with modern standards and expectations. I used a combination of hierarchical and flat type navigation to give the user a straightforward and familiar approach to moving throughout the app.</p>
     </div>
 
     <!-- Mobile Images -->
     <div>
-        <img alt="Mobile 1" src="/images/greenrope/mobile1.png">
-        <figcaption>Left: Updated Dasboard | Middle:Updated Navigation | Right: Updated Contact List </figcaption>
+        <img alt="Contact Flow" src="/images/greenrope/contact.png">
+        <figcaption>Contact Record Example</figcaption>
+    </div>
+    <div class="text-block">
+        <p>You can see within the examples how we structured the navigation. For our main navigation we broke it down categorically into 5 sections:
+            <ul>
+                <li>Dashboard</li>
+                <li>Contacts/Companies</li>
+                <li>Automation</li>
+                <li>Calendar</li>
+                <li>Settings</li>
+            </ul>
+        </p>
+    </div>
+    <div>
+        <img alt="Automation Flow" src="/images/greenrope/automation.png">
+        <figcaption>Automation Example </figcaption>
+    </div>
+    <div class="text-block">
+        <p>Depending on the category, I used a combination of either flat-type or hierarchical navigation for that section. For example, within the the automation tab, it made sense to break the 3 automation categories into their own tab. From there the user is able to hierarchically click into a campaign or workflow if they want to see more detailed information. </p>
     </div>
 
     <div>
-        <img alt="Mobile 2" src="/images/greenrope/mobile2.png">
-        <figcaption>Example of an updated contact record flow</figcaption>
+        <img alt="Calendar and Settings" src="/images/greenrope/cal-settings.png">
+        <figcaption>Calendar and Settings Example</figcaption>
     </div>
+
+    <div class="text-block">
+        <p>For an interactive walk through of the app, you visit the Invision prototype <a href="https://invis.io/NHAEPSEKY#/281283867_Dash_V3" target="_blank">here!</a></p>
+    </div> 
 
     <div class="text-block">
         <h3>Mobile App: Reflection</h3>
