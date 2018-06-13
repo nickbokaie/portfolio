@@ -446,6 +446,7 @@ $gr-bg: url('/images/greenrope/gr-header.jpg');
 $ziprent-bg: url('/images/ziprent/ziprent-cover.jpg');
 $sgtg-bg: url('/images/sgtg/sgtg-cover2.jpg');
 $about-bg: url('/images/penelope-about.jpg');
+$customerio-bg: url('/images/brick-bg.jpg');
 
 
 
@@ -479,6 +480,7 @@ $about-bg: url('/images/penelope-about.jpg');
 		background-position-x: 50%;
     background-position-y: 75%;
 }
+.customerio-content-img{background-image: $customerio-bg;}
 
 
 // Footer Styles
