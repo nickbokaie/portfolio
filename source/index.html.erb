@@ -1,8 +1,13 @@
 ---
 title: Nicholas Bokaie's Portfolio
 ---
-<div class="hero">
-  <h1>Product Designer | Bay Area</h1>
+<div class="intro">
+  <h1>Hi, I'm Nick</h1>
+  <p>Bay Area Product Designer</p>
 </div>
 
-<%= partial 'partials/main-home' %>
+<%= partial(:'partials/work', :locals => {:img => 'images/ziprent-homepage.png', :title => 'Ziprent', :description => 'Product Designer / Developer for an automated tenant placement service', :url => '/ziprent'}) %>
+
+<%= partial(:'partials/work', :locals => {:img => 'images/greenrope/gr-main-4.png', :title => 'GreenRope', :description => 'Product Designer for a CRM and Marketing Automation company', :url => '/greenrope'}) %>
+
+<%= partial(:'partials/work', :locals => {:img => 'images/designmap/dm-homepage.png', :title => 'DesignMap', :description => 'UX Designer responsible for designing a distributed marketing platform for a client in the automotive marketing space', :url => '/designmap'}) %>

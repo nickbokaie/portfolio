@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Catamaran:600|Merriweather+Sans:300,700);
+@import url(https://fonts.googleapis.com/css?family=Catamaran:600|Merriweather+Sans:300,500,700);
 
 html {
   font-size: 16px;
@@ -32,252 +32,17 @@ h1 {font-size: $large-header;}
 h2 {font-size: $medium-header;}
 h3 {font-size: $small-header;}
 
+.img-reveal{
+	visibility: hidden;
+}
 
 body {
-  background-color: white;
+  background-color: #fafafa;
   color: #333;
   font-family: 'Merriweather Sans', Sans-Serif;
   margin: 0;
   padding: 0;
 }
-
-
-// Header Styles
-
-header {
-	padding-bottom: 1%;
-}
-
-.logo {
-  text-align: center;
-	padding-top: 25px;
-	
-	img {
-		max-width: 225px;
-	}
-}
-
-//Navigation CSS
-
-$timing-function   : cubic-bezier(0.190, 1.000, 0.220, 1.000);
-$nav-width-desktop : 25em;
-$nav-width-mobile  : 25em;
-$nav-item-nb       : 6;
-$nav-background-green: #73937E;
-
-input {
-	position: fixed;
-	opacity: 0;
-}
-label {
-	position: absolute;
-	margin: 0;
-	padding: 0;
-	border: none;
-	outline: none;
-	background: none;
-	cursor: pointer;
-	&::before {
-		position: fixed;
-		z-index: 1;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		background-color: rgba(darken(#7c7c7c,30%),.6);
-		content: '';
-		opacity: 0;
-		pointer-events: none;
-		transition: opacity .5s $timing-function;
-	}
-	.burger {
-		position: fixed;
-		top: 2em;
-		left: 2em;
-		z-index: 3;
-		width: 2em;
-		height: 2em;
-		margin: 0;
-		padding: 0;
-		transition: opacity .5s $timing-function;
-		&::before,
-		.bar,
-		&::after {
-			position: absolute;
-			left: 0;
-			display: block;
-			width: 100%;
-			height: 12%;
-			background: black;
-			content: '';
-			transition: all .5s $timing-function;
-		}
-		.bar {
-			top: 44%;
-		}
-		&::before {
-			top: 0;
-			transform-origin: top left;
-		}
-		&::after {
-			bottom: 0;
-			transform-origin: bottom left;
-		}
-	}
-}
-
-input:focus + label,
-label:hover {
-	.burger {
-		opacity: .75;
-	}
-}
-
-nav {
-	position: fixed;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	z-index: 2;
-	display: flex;
-	flex-flow: column nowrap;
-	justify-content: center;
-	align-items: flex-start;
-	transform: translate3d(0,0,0); /* material acceleration */
-	transform: translateX(-100%);
-	will-change: transform;
-	transition: transform .5s $timing-function;
-	&::before {
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		left: 0; 
-		z-index: -1;
-		width: $nav-width-mobile;
-		background: $nav-background-green;
-		content: '';
-		transform: skewX(15deg) translateX(-100%);
-		transform-origin: bottom left;
-		will-change: transform;
-		transition: transform .5s $timing-function;
-		@media(min-width: 40em) {
-			width: $nav-width-desktop;
-		}
-	}
-	a {
-		margin: .5em 0;
-		padding: .1em 2em;
-		font-size: 1.5em;
-		color: white;
-		text-decoration: none;
-		font-weight: 500;
-		transform: translateX(-100%);
-		transition: color .15s, transform .5s;
-		transition-timing-function: $timing-function;
-		@for $i from 1 through $nav-item-nb {
-			&:nth-child(#{$i}) { transition-delay: 0s, #{50 + (50 * $i)}ms; }	
-		}
-		&:hover, &:focus {
-			color: black;
-    }
-    
-    &:nth-child(2):after {
-      content: "\25bc";
-      font-size: .5em;
-      padding-left: 5px;
-    }
-  }
-  
-  ul {
-    list-style: none;
-    margin: 0;
-  }
-
-  ul li {
-    line-height: 2.5em;
-  }
-}
-
-main {
-	overflow: hidden;
-	.content {
-		transform: translate3d(0,0,0); /* material acceleration */
-		will-change: transform, filter;
-		transition: all .5s $timing-function;
-	}
-}
-
-[id="navcheck"]:checked {
-	& + label {
-		&::before {
-			opacity: 1;
-			pointer-events: auto;
-		}
-		.burger {
-			&::before,
-			&::after {
-				width: 141.42%; // Pythagore!
-			}
-			&::before {
-				transform: rotate(45deg) translateY(-50%);
-			}
-			&::after {
-				transform: rotate(-45deg) translateY(50%);
-			}
-			.bar {
-				transform: scale(0.1);
-			}
-		}
-	}
-	& ~ nav {
-		transform: translateX(0);
-		&::before {
-			transform: skewX(15deg) translateX(0);
-		}
-		a {
-			transform: translateX(0);
-		}
-	}
-}
-
-/* helper */
-.visuallyhidden { 
-  border:0; 
-  clip:rect(0 0 0 0);	
-  height:1px; 
-  margin:-1px; 
-  overflow:hidden; 
-  padding:0; 
-  position:absolute; 
-  width:1px; 
-}
-// End Navigation
-
-// Hero Section: Homepage
-.hero {
-  text-align: center;
-  margin-top: 2%;
-
-  img {
-    border-radius: 50%;
-    max-width: 12rem;
-    padding: 1rem 0;
-	}
-	
-	p {
-		font-size: 1.5em;
-		color: #4c4c4c;
-	}
-
-	h1 {
-		font-size: 2.5rem;
-		color: black;
-		@include for-size(phone-only) {
-			font-size: 2rem;
-			line-height: 2rem;
-		}
-	}
-} 
 
 // Primary Button Style
 .primary-btn {
@@ -303,45 +68,208 @@ main {
 	}
 }
 
-// Main Homepage CSS
-.main-home {
-	padding: 2% 6% 0;
-	
-	.lg-col {
-		margin-bottom: 2%;
-		img {
-			width: 100%;
-		}
+.btn-small{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  text-align: center;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: normal;
+  font-size: 14px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 12px 24px 10px;
+  transition: box-shadow 420ms cubic-bezier(.165,.84,.44,1),color 420ms cubic-bezier(.165,.84,.44,1),background 420ms cubic-bezier(.165,.84,.44,1);
+}
+
+.btn-primary{
+  background: #efefef;
+  color: black;
+  &:hover {
+    opacity: 0.9;
+  }
+
+  a{
+    text-decoration: none;
+    color: inherit;
+    font-weight: bold;
+  }
+}
+
+// New Navigation
+/* header */
+
+.header {
+  background-color: transparent;
+  position: relative;
+	z-index: 3;
+	height: 60px;
+	margin: 3vh 7vw;
+
+	@include for-size(phone-only){
+		margin: 3vh 4vw;
 	}
 
-	.two-col-container {
-		div{
-			flex: 1;
-			img {
-				width:100%;
-			}
-		}
-		@include for-size(phone-only){
-			div{
-				margin-bottom: 2%;
-			}
-		}
-		@include for-size(tablet-landscape-up) {
-			flex-direction: column;
-			div {
-				margin-bottom: 2%;
-			}
-		}
+  img {
+    max-width: 75px;
+  }
+}
 
-		@include for-size(desktop-up) {
-		display: flex;
-		flex-direction: row;
-		justify-content: space-around;
+.header ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+  background-color: #fafafa;
+}
 
-		.col-1{
-			margin-right: 1%;
-		}
+.header li a {
+  display: block;
+  padding: 15px 20px;
+  text-decoration: none;
+  color:black;
+  font-weight: 700;
+  font-size: 16px; 
+}
+
+.header li a:hover,
+.header .menu-btn:hover {
+  color: #c4c4c4;
+}
+
+.header .logo {
+  display: block;
+  float: left;
+  text-decoration: none;
+}
+
+.nav-cta-button {
+  margin-left: 15px;
+  margin-bottom: 10px;
+}
+
+
+/* menu */
+
+.header .menu {
+  clear: both;
+  max-height: 0;
+  transition: max-height .2s ease-out;
+}
+
+/* menu icon */
+
+.header .menu-icon {
+  cursor: pointer;
+  display: inline-block;
+  float: right;
+  padding: 28px 20px 0px;
+  position: relative;
+  user-select: none;
+}
+
+.header .menu-icon .navicon {
+  background: #333;
+  display: block;
+  height: 2px;
+  position: relative;
+  transition: background .2s ease-out;
+  width: 18px;
+}
+
+.header .menu-icon .navicon:before,
+.header .menu-icon .navicon:after {
+  background: #333;
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  transition: all .2s ease-out;
+  width: 100%;
+}
+
+.header .menu-icon .navicon:before {
+  top: 5px;
+}
+
+.header .menu-icon .navicon:after {
+  top: -5px;
+}
+
+/* menu btn */
+
+.header .menu-btn {
+  display: none;
+}
+
+.header .menu-btn:checked ~ .menu {
+  max-height: 275px;
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon {
+  background: transparent;
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon:before {
+  transform: rotate(-45deg);
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon:after {
+  transform: rotate(45deg);
+}
+
+.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+  top: 0;
+}
+
+/* 48em = 768px */
+
+@media (min-width: 48em) {
+
+  .header li {
+    float: left;
+  }
+  .header .menu {
+    clear: none;
+    float: right;
+    max-height: none;
+  }
+  .header .menu-icon {
+    display: none;
+  }
+  
+}
+// End Navigation Styles
+
+.intro{
+	margin: 10vh 8vw;
+	text-align: center;
+
+	p{
+		@include for-size(phone-only){font-size: 1.2em;}
+		@include for-size(tablet-portrait-up){font-size: 1.5em}
+		@include for-size(tablet-landscape-up){font-size: 1.7em}
 	}
+}
+
+.work{
+	margin: 10vh 15vw;
+
+	p{
+		@include for-size(phone-only){font-size: 1em;}
+		@include for-size(tablet-portrait-up){font-size: 1.2em}
+	}
+
+	img{
+		width: 100%;
+		-webkit-box-shadow: 2px 2px 6px 1px rgba(0,0,0,0.17);
+		-moz-box-shadow: 2px 2px 6px 1px rgba(0,0,0,0.17);
+		box-shadow: 2px 2px 6px 1px rgba(0,0,0,0.17);
 	}
 }
 
@@ -350,56 +278,6 @@ main {
 	padding: 2% 6% 0;
 }
 
-// Greenrope Homepage Styles
-.gr-dash-item {
-  background-image: url('/images/greenrope/gr-city.jpg');
-	background-size: contain;
-  text-align: center;
-  padding: 10em 5em 0 5em;
-  margin-bottom: 2%;
-
-  img {
-    width: 60%;
-    object-fit: contain;
-  }
-}
-
-.dash-item {
-	margin-bottom: 2%;
-	img {
-		width: 100%;
-	}
-}
-
-
-// Ziprent Homepage Styles: TEST
-.ziprent-dash-item {
-	background-image: url('/images/ziprent/ziprent-main-test.png');
-	background-size: cover;
-	text-align: left;
-	height: 100%;
-  padding: 10em 5em 0 5em;
-  margin-bottom: 2%;
-
-  img {
-    width: 100%;
-    object-fit: contain;
-  }
-}
-
-// SGTG Homepage Styles
-.sgtg-dash-item {
-	background-image: url('/images/sgtg/tattoobg.png');
-	background-size: contain;
-  text-align: center;
-  padding: 10em 5em 0 5em;
-  margin-bottom: 2%;
-
-  img {
-    width: 60%;
-    object-fit: contain;
-  }
-}
 
 // Main body content
 .project-content {
@@ -422,7 +300,7 @@ main {
 
 	div {
 		margin: 0 auto;
-		padding: 0 3%;
+		padding: 5% 3%;
 		max-width: 1000px;
 		overflow: hidden;
 		img {
@@ -441,46 +319,18 @@ main {
 	}
 }
 
-// Background Image Variables
-$gr-bg: url('/images/greenrope/gr-header.jpg');
-$ziprent-bg: url('/images/ziprent/ziprent-cover.jpg');
-$sgtg-bg: url('/images/sgtg/sgtg-cover2.jpg');
-$about-bg: url('/images/penelope-about.jpg');
-$customerio-bg: url('/images/brick-bg.jpg');
 
 
-
-// Greenrope Content Styles
-.img-container {
-	width: 100%;
-	height: 45vh;
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-size: cover;
-	display: flex;
-  justify-content: center;
-  align-items: center;
-
-	div {
-		background: rgba($color: #000000, $alpha: .75);
-		padding: 20px;
-	}
-
-	h1 {
-		color: white;
-		line-height: 1.4em;
-	}
+.about{
+	margin: 8vh 8vw 5vh;
+	text-align: center;
+	
+	img{
+    border-radius: 50%;
+    max-width: 20rem;
+    padding: 1rem 0;
+  }
 }
-
-.gr-content-img {background-image: $gr-bg;}
-.ziprent-content-img {background-image: $ziprent-bg;}
-.sgtg-content-img {background-image: $sgtg-bg;}
-.about-content-img{
-		background-image: $about-bg;
-		background-position-x: 50%;
-    background-position-y: 75%;
-}
-.customerio-content-img{background-image: $customerio-bg;}
 
 
 // Footer Styles
@@ -494,6 +344,12 @@ footer {
 	a {
 		text-decoration: none;
 		color: inherit;
+	}
+
+	hr{
+		width: 75%;
+		margin-bottom: 2rem;
+		border: 1px solid #ebebeb;
 	}
 }
 

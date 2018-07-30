@@ -1,61 +1,69 @@
 ---
 title: Ziprent
 ---
-<div class="img-container ziprent-content-img">
-    <div>
-        <h1>Ziprent</h1>
-    </div>
-</div>
 <div class="project-content">
     <div class="text-block">
-        <p><span style="font-weight: 700;">Position:</span> Product Designer | <span style="font-weight: 700;">Team:</span> Founder, Product Designer</p>
-        <h2>Project Overview</h2>
-        <p>The goal of this project was to develop a website for a tenant placement service. A backend infrastructure had already been created before I began my involvement, providing a foundation to design a site to market the product. The MVP was to be a fairly small site focusing on highlighting the benefits of said product.</p>
-        <p>I first began by setting out to create a definitive style guide. I was able to reference the backend application to create consistency with color choices and typography.</p>
+        <h1>Project Overview</h1>
+        <p><span style="font-weight: 700;">Position:</span> Product Designer | <span style="font-weight: 700;">Team:</span> CEO, Full Stack Developer, Product Designer</p>
+        <p><strong>***Note:</strong> This project is still ongoing, however below is a snapshot of some completed and in-progress work.</p>
+
+        <p>Ziprent is a product aimed at leveraging technology to automate the process of finding the best possible tenant for a given property. Finding a tenant is often an exhausting process. Landlords have to not only create multiple listings, but run multiple credit checks, background checks, employment verification, for every applicant they recieve. The goal of Ziprent is automate the majority of these processes, and present landlords with a ranking of suitable candidates based on a multitude of factors.</p> 
+
+        <h2>Website</h2>
+        <p>One of the first projects was to create and develop the product website. We set out to focus on the following:
+            <ul>
+                <li><strong>Clear and concise CTA, focusing on simple pricing model</strong></li>
+                <li><strong>Highlight product benefits</strong></li>
+                <li><strong>Provide an interactive sign up experience</strong></li>
+            </ul>
+        </p>
+        <p>I first began with some simple concept sketches to play around with layouts and site architecture options.</p>
+    </div>
+
+    <!-- Image Block -->
+    <div>
+        <img alt="Sketches 1" src="/images/ziprent/sketches-1.png">
+    </div>
+
+    <div class="text-block">
+        <p>From there I went into creating a simple style guide to provide as a foundation. I was able to reference the current backend application to create consistency with color choices and typography.</p>
     </div>
     <!-- Image Block -->
     <div>
-        <img alt="Style Guide" src="/images/ziprent/style-guide.png">
+        <img alt="Style Guide" src="/images/ziprent/style-guide-v2.png">
     </div>
-    <!-- Text Block -->
+
     <div class="text-block">
-        <h3>Design</h3>
-        <p>As I was going to be developing the site in addition to designing it, I decided to skip creating some low fidelity wireframes and immediately move to creating some high fidelity wireframes on Sketch. Seeing as the site was going to be no more than 3-4 pages, I had a good idea of how the layout of site should be based off of the requirements set by the founder:
-            <ul>
-                <li>Clear and concise call to action</li>
-                <li>Highlight benefits of platform</li>
-                <li>Contact/Pricing form for potential customers</li>
-            </ul>
-        </p>
-        <p>I first began mocking up a couple examples of how the homepage and feature section should be laid out. I want to make sure I created responsive and reusable design elements/characteristics allowing me to writing resusable HTML and CSS elsewhere on the site. </p>
-    </div>
-    <!-- Image Block-->
-    <div>
-        <img alt="First set of wireframes" src="/images/ziprent/wireframes-1.png">
-    </div>
-    <!-- Text Block -->
-    <div class="text-block">
-        <p>Moving onto the other potential pages, I was able to carry those design elements I had established on the home and feature into the layout of these subsequent pages. I wasn't too concerned about having the exact layout finalized and pixel perfect. I wanted to give my flexibility should the founder want to add or remove different sections.</p>
-    </div>
-     <!-- Image Block-->
-     <div>
-        <img alt="Second set of wireframes" src="/images/ziprent/wireframes-2.png">
+        <h3>High Fidelity Prototyping</h3>
+        <p>With the general style guide set, I then went onto creating a first set of high fidelity prototypes. I wanted to keep the homepage simple, drawing attention to both top and bottom CTA’s. I also employed the use of simple illustrations to create the sense of “joy” within the site, removing the clinical connotation finding a tenant may have.</p>
     </div>
     
-    <!-- Text Block -->
-    <div class="text-block">
-        <p>In order to display an example of the backend UI a potential customer may see, I needed to recreate that enviornment within Sketch inorder to give a high resolution depiction.</p>
-    </div>
-
      <!-- Image Block-->
      <div>
-        <img alt="Example of backend UI" src="/images/ziprent/backend.png">
+        <img alt="First set of wireframes" src="/images/ziprent/hi-fi-1.png">
+        <figcaption>Homepage / Get Started / About</figcaption>
+        <img alt="Second set of wireframes" src="/images/ziprent/hi-fi-2.png">
+        <figcaption>Left: Tenant Placement | Right: SF Specific Landing Page</figcaption>
     </div>
 
     <div class="text-block">
-        <h3>Development</h3>
-        <p>With the design set, I then began to develop the site using <a href="https://middlemanapp.com">Middleman</a>, a static site generator. Seeing as it site was not going to have any dynamic data requiring the use of a CMS, I felt a static site would be much more efficient to develop and deploy, while also providing quick load times.</p>
-        <h3>Concluding Thoughts</h3>
-        <p>Working directly with the founder on this project made the experience extremely enjoyable. I was able to establish a creative dynamic leading to a collaborative design experience. Because I decided to develop the site myself, it forced me to approach my designs from a different lens than what I was used to. I not only had to come with an appropriate design but be conscious on how to develop those elements. It gave me a newfound appreciation for the development cycle and helped improve my development chops.</p>
+        <p>To achieve the interactive element of the sign up experience, I had the idea of making the “address” field dynamic. When the user enters in their address upon during the sign up process, we would ping Zillow’s API and have a map canvas slide in showing the location of their property with some relevant data such as target rent, bedrooms, bathrooms, and square footage.
+        </p> 
+    </div>
+
+    <div>
+        <img alt="get started gif" src="/images/ziprent/get-started-example.gif">
+    </div>
+
+    <div class="text-block">
+        <h2>Development</h2>
+        <p>With the design set, I then began to develop the site using <a href="https://middlemanapp.com">Middleman</a>, a static site generator. Seeing as it site was not going to have any dynamic data requiring the use of a CMS, I felt a static site would be much more efficient to develop and deploy, while also providing quick load times. This was also a great exercise in developing with a component based mindset. I focused on writing reusable elements, allowing changes to be made quickly, and ultimately allowing for quicker development. Feel free to check out some demo examples of both the site and landing pages.</p>
+        <div class="codepen-examples">
+            <a href="http://demo-ziprent.surge.sh/new/home/" target="_blank"><button class="btn-small btn-primary">Site Demo</button></a>
+            <a href="http://ziprent-creative.surge.sh/landing-pages/sf-one/" target="_blank"><button class="btn-small btn-primary">Landing Page Demo</button></a>
+        </div>
+    </div>
+    <div class="text-block">
+        <h2>Check back soon for more work! </h2>
     </div>
 </div>

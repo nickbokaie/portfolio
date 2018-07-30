@@ -8,13 +8,18 @@
     <!-- Use the title from a page's frontmatter if it has one -->
     <title><%= current_page.data.title || "Nick Bokaie Portfolio" %></title>
     <%= stylesheet_link_tag "site" %>
+    <script src="/javascripts/scrollreveal.min.js"></script>
     <%= javascript_include_tag "site" %>
+    <script> window.sr = ScrollReveal();</script>
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
   </head>
   <body>
-    <%= partial 'partials/header' %>
+    <%= partial 'partials/new-nav' %>
     <%= yield %>
     <%= partial 'partials/footer' %>
+    <script>
+    sr.reveal('.img-reveal', { duration: 1500 });
+    </script>
   </body>
 </html>

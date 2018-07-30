@@ -18,6 +18,15 @@ activate :minify_html
 #Image optimizer
 activate :imageoptim
 
+# Password Protect
+activate :gibberish do |gibberish|
+  # set the default password
+    gibberish.password = 'alabama123'
+  # encrypt a page with the default password
+    gibberish.encrypt '/designmap/index.html'
+end
+
+
 # Layouts
 # https://middlemanapp.com/basics/layouts/
 
