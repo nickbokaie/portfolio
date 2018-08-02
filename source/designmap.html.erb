@@ -1,17 +1,129 @@
 ---
 Title: DesignMap
 ---
-<div class="img-container gr-content-img">
-    <div>
-        <h1>DesignMap</h1>
-    </div>
-</div>
 
 <!-- Start Content -->
 <div class="project-content">
     <div class="text-block">
+        <h1>Design Map</h1>
         <p><span style="font-weight: 700;">Position:</span> UX Designer | <span style="font-weight: 700;">Team:</span> Project Manager, Senior UX Designer, UX Designer</p>
         <h2>Project Overview</h2>
-        <p>During my time at GreenRope, my primary focus was addressing design consistency throughout the platform. When moving through the platform, there was a disconnect between feature areas which would lead to user frustrations. The main objective was to identify the various differences from feature to feature and implement a new design to eliminate any disjunction.</p>
+        <p>The client for this project was a marketing firm that was responsible for handling the marketing efforts for large automotive companies such as Toyota and Honda. The scope of my project was to design a distributed marketing platform catered to the automotive industry. The sole focus for MVP was to design the platform to handle email and direct mail, but to also consider other distribution channels such as facebook ads, text notifications, etc., for future additions. Other features such as admin permissions, reporting, and automation were not in the scope for MVP.</p>
+    </div>
+    <!-- Image Block-->
+    <div>
+        <img class="shadow" src="/images/designmap/flow-chart.png">
+        <figcaption>High level overview of the destributed marketing track</figcaption>
+    </div>
+
+    <div class="text-block">
+        <h2>Identifying &amp; Understanding the Primary User</h2>
+        <p>The organizational hierarchy between the client and the automotive organization they represent is as follows:</p>
+    </div> 
+
+    <div>
+        <img src="/images/designmap/user-hierarchy.png">
+        <figcaption>Left: User Heirarchy | Right: Primary User</figcaption>
+    </div>
+    <div class="text-block">
+        <p>Based on discussions with the client, we came to conclusion that the primary user for this feature within the system would be <strong>Bob, a tier 3 service manager</strong>. In short his role is to keep the service department active with consistent business. This can anything from doing routine oil changes to performing diagnostic services. The overarching goal of the distributed marketing platform would be to assist Bob in keeping his department flowing with business. This led to a couple considerations:
+            <ul>
+                <li>How do I make a non-marketer (Bob) become a proficient marketer?</li>
+                <li>How do I streamline this process so it does not interfere with Bob’s day-to-day operations? I wanted Bob to spend no more than 20 minutes within this feature</li>
+            </ul>
+        </p>
+        <p>To address these considerations we set out to understand the goals for Bob. The goals I saw fit for Bob were as follows:
+            <ul>
+                <li><strong>Set expectations</strong>
+                    <ul>
+                        <li>How long will it take (for direct mail)?</li>
+                        <li>What do most people do?</li>
+                        <li>What's most successful? ROI?</li>
+                    </ul>
+                </li>
+                <li><strong>Exploration</strong>
+                    <ul>
+                        <li>Marketing categories in human terms</li>
+                    </ul>
+                </li>
+                <li><strong>Consider Audience</strong>
+                    <ul>
+                        <li>Limitations for data present? Does he need to concern himself what percentage of his target audience has both email and an address on file.</li>
+                    </ul>
+                </li>
+            </ul>
+        </p>
+    </div> 
+
+    <!--Image Block-->
+    <div>
+        <img src="/images/designmap/bob-goals.png">
+        <figcaption>Whiteboarding session to understand Bob's goals</figcaption>
+    </div>
+
+    <div class="text-block">
+        <h2>Establishing the Main User Flow</h2>
+        <p>With the primary user narrative created, I then moved on to creating/concepting the main user flow. A requirement set forth by the client was when Bob was to send out a distributed marketing message, the experience was to be similar to a wizard. They wanted the platform to guide the user as much as possible from step to step. My initial flow followed the initial information given by client:
+            <ul>
+                <li>New Campaign → Select Template → Edit template → Preview edits → Test send campaign → Select Segment/Audience → Schedule campaign delivery</li>
+            </ul>
+        </p>
+    </div>
+
+    <!-- Image Block -->
+    <div>
+        <img class="shadow" src="/images/designmap/userflow-1.png">
+    </div>
+
+    <div class="text-block">
+        <p>The main issue / question that came to mind was: <strong>Why would you force Bob to select an audience before choosing a template?</strong> Bob is not a marketer, he may not know exactly who he wants to target. By allowing him to select a template first, it could act as inspiration, allowing him to achieve his goal(s) more efficiently.</p>
+
+        <p>My feedback was met with a little resistance and the client was adamant about giving the user the option of selecting a segment first. The flow was then adjusted to reflect a suitable compromise:
+            <ul>
+                <li>New Campaign → Option to select a template or segment first → edit template → preview edits → test send campaign → Schedule campaign</li>
+            </ul>
+        By giving Bob the option to select a template or segment first, I was able to still provide an exploratory experience. </p>
+    </div>
+
+    <!--Image Block-->
+    <div>
+        <img class="shadow" src="/images/designmap/userflow-2.png">
+    </div>
+
+    <div class="text-block">
+        <h2>Wireframing</h2>
+        <p>With the approval of the user flow, I then moved on wireframing the experience. Each section of the flow had their own interactions and various states to consider. In order to best contextualize and demonstrate the UX flow, I’ll break down the screens by the following steps to make it a bit more digestible:
+            <ul>
+                <li>Overview / Landing Page</li>
+                <li>Selecting a template or segment</li>
+                <li>Editing</li>
+                <li>Previewing</li>
+                <li>Testing</li>
+                <li>Scheduling</li>
+            </ul>
+        </p>
+        <p><strong>***Note:</strong> Before we begin the deep dive, pre-defined campaigns, template, and segment creation are only to be handled by the GSM internal team. These assets will then be passed down to the various dealership tiers. Dealership level users will not be able to create their own templates or segments. They will only be able to make small adjustments when creating their own campaign.</p>
+        <h3>Overview Page</h3> 
+        <p>The main goal of the overview page was to provide Bob with both high level information about past and current campaigns, as well as, actionable elements. Playing into the narrative that Bob is not a marketer, I wanted to accentuate goals he may have and allow him to take immediate action.</p>
+        <p>I achieved this by dedicating the top block element to showcase pre-selected campaigns. Pre-defined campaign cards would include information such as <strong>template preview</strong>, <strong>total recipients</strong>, <strong>channel (email / direct mail) breakdown</strong>, etc. This allows Bob to explore campaigns that were created by the GSM internal team and take immediate action. He will be able to schedule a campaign with minimal effort, improving his efficiency and allowing to focus on his service center.</p>
+    </div>
+    
+    <!--Image Block-->
+    <div>
+        <img src="/images/designmap/overview-1.png">
+    </div>
+
+    <div class="text-block">
+        <p>Underneath, I used the space to present high level information about campaigns. This was categorized into several sections: Scheduled, In Progress, Drafts, Completed/Archived. Each section had various actions the user could take, such as pausing an in progress campaign or deleting a scheduled campaign.</p>
+    </div>
+
+    <!--Image Block -->
+    <div>
+        <img src="/images/designmap/overview-2.png">
+        <figcaption>Demonstrating the action of pausing and restarting an in-progress campaign</figcaption>
+    </div>
+
+    <div class="text-block">
+        <h3>Further Updates Cooming Soon!</h3>
     </div>
 </div>

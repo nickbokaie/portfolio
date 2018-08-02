@@ -273,6 +273,12 @@ body {
 	}
 }
 
+.shadow{
+  -webkit-box-shadow: 2px 2px 6px 1px rgba(0,0,0,0.17);
+		-moz-box-shadow: 2px 2px 6px 1px rgba(0,0,0,0.17);
+		box-shadow: 2px 2px 6px 1px rgba(0,0,0,0.17);
+}
+
 // Inner Page Padding
 .section-padding {
 	padding: 2% 6% 0;
