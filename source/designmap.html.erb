@@ -8,7 +8,7 @@ Title: DesignMap
         <h1>Design Map</h1>
         <p><span style="font-weight: 700;">Position:</span> UX Designer | <span style="font-weight: 700;">Team:</span> Project Manager, Senior UX Designer, UX Designer</p>
         <h2>Project Overview</h2>
-        <p>The client for this project was a marketing firm that was responsible for handling the marketing efforts for large automotive companies such as Toyota and Honda. The scope of my project was to design a distributed marketing platform catered to the automotive industry. The sole focus for MVP was to design the platform to handle email and direct mail, but to also consider other distribution channels such as facebook ads, text notifications, etc., for future additions. Other features such as admin permissions, reporting, and automation were not in the scope for MVP.</p>
+        <p>The client for this project was a marketing firm that was responsible for handling the marketing efforts for large automotive companies such as Toyota and Honda. The overall project was to design an automotive specific marketing web application. The scope of my project was to design a distributed marketing platform. The focus for MVP was to design the platform to handle email and direct mail, but to also consider other distribution channels such as facebook ads, text notifications, etc., for future additions. Other features such as admin permissions, reporting, and automation were not in the scope for MVP.</p>
     </div>
     <!-- Image Block-->
     <div>
@@ -97,8 +97,7 @@ Title: DesignMap
                 <li>Overview / Landing Page</li>
                 <li>Selecting a template or segment</li>
                 <li>Editing</li>
-                <li>Previewing</li>
-                <li>Testing</li>
+                <li>Previewing & Testing</li>
                 <li>Scheduling</li>
             </ul>
         </p>
@@ -124,6 +123,120 @@ Title: DesignMap
     </div>
 
     <div class="text-block">
-        <h3>Further Updates Cooming Soon!</h3>
+        <h3>Selecting a Segment &amp; Template</h3>
+        <p>This step in the campaign creation process was treated as the decision point before the user enters the “wizard” function. When the user clicks “New Campaign” they are directed to this decision making screen. I utilized a tool-tip to make it clear to the user that they either have to choose a segment or template first. In this example, I am showing the user selecting a segment first.</p>
+    </div>
+
+    <!--Image Block -->
+    <div>
+        <img src="/images/designmap/segment-1.png">
+    </div>
+
+    <div class="text-block">
+        <p>I included a couple of filter options to help narrow down the focus for the user. They can choose to filter by what channel(s) they want to target and what particular goal they may have in mind. Upon creation, all segment and template assets will be categorized with one of several different marketing categories. Going back to the premise of Bob not being a marketer, I wanted to use friendly verbiage to make it more relatable to Bob/user.</p>
+    </div>
+
+    <!--Image Block -->
+    <div>
+        <img src="/images/designmap/segment-2.png">
+    </div>
+
+    <div class="text-block">
+        <p>Once the user has made a selection, they then enter “Step One” of the wizard. In this example, “Step One” is to select a template. Below you can see what information is carried over, in addition to some of the various states the user can be in when previewing and ultimately selecting their template of choice.</p> 
+    </div>
+   
+     <!--Image Block -->
+     <div>
+        <img src="/images/designmap/template-1.png">
+        <figcaption>Overview of New Campaign wizard</figcaption>
+        <img src="/images/designmap/template-2.png">
+        <figcaption>Previewing and selecting a campaign template</figcaption>
+    </div>
+
+    <div class="text-block">
+        <h3>Editing a Template</h3>
+        <p>Step 2 of the creation process is to edit the template that has been selected. What was challenging about this part of the process was how to incorporate the various channel(s) into one editor. WIth MVP focusing on email and direct mail, I needed to come up with a elegant solution that allowed for easy toggling, but could also be scalable when other channels were going to be added.</p>
+        <p>The end solution I came up with was to add a dynamic header to the top of the editor. Within this header I could have toggleable elements that would switch to the various channel specific editor view. </p>
+    </div>
+
+    <!--Image Block-->
+    <div>
+        <img src="/images/designmap/edit-channel.png">
+    </div>
+
+    <div class="text-block">
+        <p>When it came to editing the template itself there were some tight stipulations the client had for edit flexibility. The general premise was, upon creation the template author (internal GSM user) would stipulate which area of the template could be editable. This could be a text block or image block. When Bob at Toyota of Marin selects that template he is able to only change the text or image block to make slight adjustments based on his audience. He will not be able to adjust the layout or structure of the template itself.</p>
+    </div>
+
+    <!-- Image Block -->
+    <div>
+        <img src="/images/designmap/edit-template.png">
+    </div>
+
+    <div class="text-block">
+        <h3>Previewing &amp; Testing</h3>
+        <p>When it came to previewing and testing the campaign, I utilized the header on top of the editor to house a dropdown button. For previewing I wanted to draw the users full attention to looking at their template. To accomplish that I made sure that when preview mode was clicked it entered into a full page modal experience. That way, the user could not accidently click out, reducing error state complexity. I also maintained the use of toggleable elements to switch between the different channel views. Different channels are going to have different preview states.</p>
+    </div>
+
+    <!-- Image Block -->
+    <div>
+        <img src="/images/designmap/preview-1.png">
+    </div>
+
+    <div class="text-block">
+        <p>For sending a test message, I wanted to keep it simple and just utilized a simple centered modal. However, I still had to factor in how to send a test version of a direct mail template. It was concluded that a PDF would be the best solution. The user would have the option of including the PDF with each test through the use of some checkboxes.</p>
+    </div>
+
+    <div>
+        <img src="/images/designmap/test-send.png">
+    </div>
+
+    <div class="text-block">
+        <h3>Scheduling a Message</h3>
+        <p>The final step of the process is for the user to schedule the message. The crucial aspect in this step was to make the metadata clear and concise for the user. I wanted to make they know:
+            <ul>
+                <li>Who they are sending to (segments)</li>
+                <li>Who is it being sent from (from:email & address)</li>
+                <li>Why is being sent (subject line)</li>
+                <li>What is being sent (template preview)</li>
+            </ul>
+        Once that data is confirmed, all they have to do is pick a send time. This will be dependent if it is a multi-channel campaign. If that is case they will have a pick a time for both email and direct mail.
+        </p>
+    </div>
+    <div>
+        <img src="/images/designmap/schedule.png">
+    </div>
+
+    <div class="text-block">
+        <h2>Visual Design</h2>
+        <p>With this being a ground up design of a marketing platform, we wanted to first create a style board to get a sense of the type of universal components we are going to need create and spec out.</p>
+    </div>
+
+    <div>
+        <img src="/images/designmap/style-board.png">
+    </div>
+
+    <div class="text-block">
+        <p>From there we moved on to creating the necessary components for the style guide. Components included:
+            <ul>
+                <li>Typography</li>
+                <li>Color Paletter</li>
+                <li>Iconography</li>
+                <li>Table styles</li>
+                <li>Tool tips and notification banners</li>
+                <li>Inputs fields</li>
+                 <li>Etc</li>       
+            </ul>
+            The below is just a high level view of the various component docs created for this project.
+        </p>
+     </div>
+     <div>
+        <img src="/images/designmap/style-1.png">
+    </div>
+    <div class="text-block">
+        <h2>Concluding Thoughts</h2>
+        <p>One of the main takeaways I gained from this project was learning how to be cognisant of my own biases when designing and concepting certain interactions. I found myself making certain interaction patterns that I felt were familiar, but when applying it to the end user I quickly saw that they did not match up. By forcing myself to look at every pattern and assumption through the eyes of the end user, I learned to make more human centered design choices. </p> 
+        <p>This was also my first agency project which was a great learning experience on how to present to and work with a serious client. I learned from my PM to make sure that every screen that is being shown has a clear purpose. By doing so I was able to gather much more useful feedback and direction from the client. This led to a more open and creative dialogue between us.</p>
+        <p>My one disappointment was the project was put on hold by the client after the MVP requirements were met. This particular project only scraped the surface of the bigger project scope. I would have really enjoyed applying my user knowledge to the more complex functionality that was scheduled for future releases.</p>
     </div>
 </div>
